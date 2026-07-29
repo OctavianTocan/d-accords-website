@@ -1,0 +1,14 @@
+src/App.tsx
+  h_dad53a55d60d3d 5,23,59,67,267
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "a945d73c091287cf189ee12d1389f56092843633",
+  "prompts": {},
+  "humans": {
+    "h_dad53a55d60d3d": {
+      "author": "Octavian Tocan <contact@octaviantocan.com>"
+    }
+  }
+}

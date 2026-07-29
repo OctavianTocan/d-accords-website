@@ -67,21 +67,6 @@ function Wordmark() {
   )
 }
 
-function MeasuringTape() {
-  return (
-    <div className="measuring-tape" aria-hidden="true">
-      <img
-        src="/images/measuring-tape.png"
-        alt=""
-        width={1260}
-        height={80}
-        loading="lazy"
-        decoding="async"
-      />
-    </div>
-  )
-}
-
 export default function App() {
   return (
     <div className="site-shell">
@@ -109,7 +94,10 @@ export default function App() {
             ))}
           </nav>
         </details>
-        <a className="button button--light site-header__cta" href="#cita">
+        <a
+          className="button button--light site-header__cta"
+          href="tel:+34642579531"
+        >
           Pedir cita
         </a>
       </header>
@@ -128,7 +116,7 @@ export default function App() {
                 Doina en Zaragoza.
               </p>
               <div className="hero__actions">
-                <a className="button button--dark" href="#cita">
+                <a className="button button--dark" href="tel:+34642579531">
                   Pedir cita
                 </a>
                 <a className="text-link" href="#trabajo">
@@ -260,26 +248,18 @@ export default function App() {
                 </dd>
               </div>
               <div>
-                <dt>Email</dt>
-                <dd>
-                  <a href="mailto:hola@d-accords.com">hola@d-accords.com</a>
-                </dd>
-              </div>
-              <div>
                 <dt>Horario</dt>
                 <dd>Martes a sábado, con cita previa</dd>
               </div>
             </dl>
             <a
               className="button button--light contact__cta"
-              href="mailto:hola@d-accords.com?subject=Cita%20en%20D%27accords"
+              href="tel:+34642579531"
             >
               Pedir cita
             </a>
           </div>
         </section>
-
-        <MeasuringTape />
       </main>
 
       <footer className="site-footer">

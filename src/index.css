@@ -429,22 +429,6 @@ section {
   color: color-mix(in srgb, var(--color-chalk) 64%, transparent);
 }
 
-.measuring-tape {
-  display: flex;
-  height: 40px;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  background: var(--color-charcoal);
-}
-
-.measuring-tape img {
-  width: 630px;
-  height: 40px;
-  max-width: none;
-  flex: none;
-}
-
 .section {
   padding: clamp(80px, 8vw, 120px) var(--page-pad);
 }
@@ -915,9 +899,6 @@ section {
     padding-inline: var(--page-pad);
   }
 
-  .measuring-tape {
-    justify-content: flex-start;
-  }
 }
 
 @media (max-width: 360px) {

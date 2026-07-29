@@ -2,7 +2,7 @@ const navigation = [
   { href: '#servicios', label: 'Servicios' },
   { href: '#trabajo', label: 'Trabajo' },
   { href: '#cita', label: 'Visítanos' },
-] as const
+] as const;
 
 const services = [
   {
@@ -20,7 +20,7 @@ const services = [
     description:
       'Pruebas, retoques y pequeños cambios que transforman el resultado.',
   },
-] as const
+] as const;
 
 const work = [
   {
@@ -56,7 +56,7 @@ const work = [
     title: 'Vestido de tarde',
     type: 'A medida',
   },
-] as const
+] as const;
 
 function Wordmark() {
   return (
@@ -64,7 +64,7 @@ function Wordmark() {
       <span className="wordmark__name">D&apos;ACCORDS</span>
       <span className="wordmark__descriptor">Modistería</span>
     </span>
-  )
+  );
 }
 
 export default function App() {
@@ -105,10 +105,6 @@ export default function App() {
       <main id="contenido" tabIndex={-1}>
         <section id="top" className="hero">
           <div className="hero__copy">
-            <div className="hero__signature">
-              <strong>Doina</strong>
-              <span>Modista en Zaragoza</span>
-            </div>
             <div className="hero__body">
               <h1>Arreglos y ropa a medida</h1>
               <p>
@@ -268,5 +264,5 @@ export default function App() {
         <p>© 2026, Zaragoza</p>
       </footer>
     </div>
-  )
+  );
 }

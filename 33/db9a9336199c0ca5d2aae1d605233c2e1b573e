@@ -1,0 +1,19 @@
+src/App.tsx
+  s_d7e8b1182fa0b2::t_8251a9c3a5bd0c 97-100,119,257
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "33db9a9336199c0ca5d2aae1d605233c2e1b573e",
+  "prompts": {},
+  "sessions": {
+    "s_d7e8b1182fa0b2": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "5dff20f8-9f16-4930-a675-793798707eaf",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Octavian Tocan <contact@octaviantocan.com>"
+    }
+  }
+}

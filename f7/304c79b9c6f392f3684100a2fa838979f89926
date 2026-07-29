@@ -1,0 +1,55 @@
+.oxlintrc.json
+  s_36061adf154b3c::t_b3d13e2e7ca4ff 1-8
+README.md
+  s_36061adf154b3c::t_2c1c9dd66be4bd 1-32
+package-lock.json
+  s_36061adf154b3c::t_ee7c458e871639 1-2049
+package.json
+  s_d7e8b1182fa0b2::t_cb62feeb4211fc 1-27
+public/favicon.svg
+  s_36061adf154b3c::t_38edcf0cfe77e4 1-4
+public/icons.svg
+  s_36061adf154b3c::t_19f34bfa845918 1-24
+src/App.tsx
+  s_d7e8b1182fa0b2::t_26e166407c7146 1-295
+src/main.tsx
+  s_36061adf154b3c::t_aa5378661ae879 1-10
+tsconfig.app.json
+  s_36061adf154b3c::t_f91d10fdc96c2d 1-26
+tsconfig.json
+  s_36061adf154b3c::t_bc50a5bf8dbfcb 1-7
+tsconfig.node.json
+  s_36061adf154b3c::t_bf7036af6b3614 1-23
+.gitignore
+  s_d7e8b1182fa0b2::t_b5fba83f4f61ae 1-26
+index.html
+  s_d7e8b1182fa0b2::t_05afa0cabfa346 1-23
+src/index.css
+  s_d7e8b1182fa0b2::t_ce483e74a5f710 1-12
+vite.config.ts
+  s_d7e8b1182fa0b2::t_f5b67dd186833e 1-7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "f7304c79b9c6f392f3684100a2fa838979f89926",
+  "prompts": {},
+  "sessions": {
+    "s_36061adf154b3c": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fa891-7af0-7393-9b33-f374340b01d3",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Octavian Tocan <contact@octaviantocan.com>"
+    },
+    "s_d7e8b1182fa0b2": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "5dff20f8-9f16-4930-a675-793798707eaf",
+        "model": "grok-4.5"
+      },
+      "human_author": "Octavian Tocan <contact@octaviantocan.com>"
+    }
+  }
+}

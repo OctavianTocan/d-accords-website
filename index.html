@@ -6,18 +6,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="D'accords — arreglos y ropa a medida de Doina en Zaragoza."
+      content="D'accords. Arreglos y ropa a medida de Doina en Zaragoza."
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;1,9..40,400&display=swap"
-      rel="stylesheet"
+    <link rel="canonical" href="https://d-accords.com/" />
+    <meta property="og:title" content="D'accords | Doina, modista en Zaragoza" />
+    <meta
+      property="og:description"
+      content="Arreglos y ropa a medida, hechos con calma en Zaragoza."
     />
-    <title>D'accords — Doina · Zaragoza</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://d-accords.com/" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:image" content="https://d-accords.com/images/hero.webp" />
+    <meta
+      property="og:image:alt"
+      content="Camisa azul sobre una silla roja en el taller de D'accords"
+    />
+    <meta property="og:image:width" content="1100" />
+    <meta property="og:image:height" content="1650" />
+    <meta name="theme-color" content="#2a2a2c" />
+    <link rel="preload" href="/fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "D'accords",
+        "description": "Arreglos y ropa a medida de Doina en Zaragoza.",
+        "url": "https://d-accords.com/",
+        "image": "https://d-accords.com/images/hero.webp",
+        "telephone": "+34642579531",
+        "email": "hola@d-accords.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "C/ del Porvenir, 15",
+          "postalCode": "50006",
+          "addressLocality": "Zaragoza",
+          "addressCountry": "ES"
+        }
+      }
+    </script>
+    <title>D'accords | Doina, modista en Zaragoza</title>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      document.addEventListener("click", (event) => {
+        const link =
+          event.target instanceof Element
+            ? event.target.closest(".mobile-nav__links a")
+            : null;
+
+        link?.closest("details")?.removeAttribute("open");
+      });
+    </script>
   </body>
 </html>

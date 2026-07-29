@@ -1,294 +1,291 @@
+const navigation = [
+  { href: '#servicios', label: 'Servicios' },
+  { href: '#trabajo', label: 'Trabajo' },
+  { href: '#cita', label: 'Visítanos' },
+] as const
+
+const services = [
+  {
+    title: 'Arreglos',
+    description:
+      'Bajos, cinturas, mangas y cierres. La prenda vuelve a sentar como debe.',
+  },
+  {
+    title: 'A medida',
+    description:
+      'Vestidos, faldas y piezas de ocasión cortadas y cosidas para ti.',
+  },
+  {
+    title: 'Ajustes finos',
+    description:
+      'Pruebas, retoques y pequeños cambios que transforman el resultado.',
+  },
+] as const
+
+const work = [
+  {
+    src: '/images/suit.webp',
+    srcSet:
+      '/images/suit-480.webp 480w, /images/suit-800.webp 800w, /images/suit.webp 1000w',
+    sizes: '(max-width: 900px) calc(100vw - 48px), 55vw',
+    width: 1000,
+    height: 1000,
+    alt: 'Traje azul confeccionado a medida',
+    title: 'Traje a medida',
+    type: 'A medida',
+  },
+  {
+    src: '/images/sewing.webp',
+    srcSet:
+      '/images/sewing-480.webp 480w, /images/sewing-800.webp 800w, /images/sewing.webp 900w',
+    sizes: '(max-width: 900px) calc(100vw - 48px), 35vw',
+    width: 900,
+    height: 600,
+    alt: 'Detalle de una costura precisa',
+    title: 'Detalle de costura',
+    type: 'Arreglo',
+  },
+  {
+    src: '/images/dress-700.webp',
+    srcSet:
+      '/images/dress-480.webp 480w, /images/dress-700.webp 700w',
+    sizes: '(max-width: 900px) calc(100vw - 48px), 35vw',
+    width: 700,
+    height: 841,
+    alt: 'Vestido de tarde ajustado en el taller',
+    title: 'Vestido de tarde',
+    type: 'A medida',
+  },
+] as const
+
+function Wordmark() {
+  return (
+    <span className="wordmark" aria-label="D'accords Modistería">
+      <span className="wordmark__name">D&apos;ACCORDS</span>
+      <span className="wordmark__descriptor">Modistería</span>
+    </span>
+  )
+}
+
+function MeasuringTape() {
+  return (
+    <div className="measuring-tape" aria-hidden="true">
+      <img
+        src="/images/measuring-tape.png"
+        alt=""
+        width={1260}
+        height={80}
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  )
+}
+
 export default function App() {
   return (
-    <div className="[font-synthesis:none] flex min-h-screen flex-col overflow-x-hidden bg-white antialiased text-xs/4">
-      {/* Nav */}
-      <header className="flex w-full shrink-0 items-center justify-between bg-white px-6 py-7 md:px-16">
-        <a href="#top" className="flex items-baseline gap-2.5 no-underline">
-          <span className="inline-block font-['Cormorant_Garamond',serif] text-[28px]/8 font-medium tracking-[-0.02em] text-[#1A1C1B]">
-            Doina
-          </span>
-          <span className="inline-block font-['DM_Sans',system-ui,sans-serif] text-[11px]/3.5 tracking-[0.16em] text-[#8A918C] uppercase">
-            D&apos;accords
-          </span>
+    <div className="site-shell">
+      <a className="skip-link" href="#contenido">
+        Ir al contenido
+      </a>
+      <header className="site-header">
+        <a href="#top" className="site-header__brand">
+          <Wordmark />
         </a>
-        <nav className="hidden items-center gap-9 md:flex">
-          <a
-            href="#servicios"
-            className="inline-block font-['DM_Sans',system-ui,sans-serif] text-[13px]/4 tracking-[0.02em] text-[#2C2F2E] no-underline"
-          >
-            Servicios
-          </a>
-          <a
-            href="#trabajo"
-            className="inline-block font-['DM_Sans',system-ui,sans-serif] text-[13px]/4 tracking-[0.02em] text-[#2C2F2E] no-underline"
-          >
-            Trabajo
-          </a>
-          <a
-            href="#cita"
-            className="inline-block font-['DM_Sans',system-ui,sans-serif] text-[13px]/4 tracking-[0.02em] text-[#2C2F2E] no-underline"
-          >
-            Sobre mí
-          </a>
+        <nav className="site-nav" aria-label="Navegación principal">
+          {navigation.map((item) => (
+            <a href={item.href} key={item.href}>
+              {item.label}
+            </a>
+          ))}
         </nav>
-        <a
-          href="#cita"
-          className="flex items-center justify-center bg-[#1A1C1B] px-5.5 py-3 no-underline"
-        >
-          <span className="inline-block font-['DM_Sans',system-ui,sans-serif] text-xs/3.5 font-medium tracking-[0.08em] text-white uppercase">
-            Pedir cita
-          </span>
+        <details className="mobile-nav">
+          <summary>Menú</summary>
+          <nav className="mobile-nav__links" aria-label="Navegación móvil">
+            {navigation.map((item) => (
+              <a href={item.href} key={item.href}>
+                {item.label}
+              </a>
+            ))}
+          </nav>
+        </details>
+        <a className="button button--light site-header__cta" href="#cita">
+          Pedir cita
         </a>
       </header>
 
-      {/* Hero */}
-      <section
-        id="top"
-        className="flex w-full shrink-0 flex-col overflow-clip md:h-195 md:flex-row"
-      >
-        <div className="flex w-full shrink-0 flex-col justify-end gap-7 bg-[#F4F1EC] px-6 pt-16 pb-18 md:w-140 md:pr-18 md:pl-16">
-          <div className="flex flex-col gap-4.5">
-            <h1 className="font-['Cormorant_Garamond',serif] text-6xl/16 tracking-[-0.03em] text-[#1A1C1B] md:text-8xl/22">
-              Doina
-            </h1>
-            <p className="max-w-95 font-['Cormorant_Garamond',serif] text-[24px]/8 text-[#2C2F2E] italic md:text-[28px]/9">
-              Arreglos y ropa a medida, con la calma de un buen taller.
-            </p>
-            <p className="max-w-90 font-['DM_Sans',system-ui,sans-serif] text-[15px]/6 text-[#6B706C]">
-              Ajustes precisos, vestidos de ocasión y piezas hechas a tu medida.
-              Pide cita y ven a conocerme en Zaragoza.
-            </p>
-          </div>
-          <div className="mt-2 flex items-center gap-5">
-            <a
-              href="#cita"
-              className="flex items-center justify-center bg-[#6B7F73] px-7 py-4 no-underline"
-            >
-              <span className="inline-block font-['DM_Sans',system-ui,sans-serif] text-[13px]/4 font-medium tracking-[0.08em] text-white uppercase">
-                Pedir cita
-              </span>
-            </a>
-            <a
-              href="#trabajo"
-              className="inline-block font-['DM_Sans',system-ui,sans-serif] text-[13px]/4 tracking-[0.02em] text-[#2C2F2E] underline-offset-4 [text-decoration:underline_1px]"
-            >
-              Ver trabajo
-            </a>
-          </div>
-        </div>
-        <div className="flex h-120 grow basis-[0%] overflow-clip bg-[#2C2F2E] md:h-195">
-          <div
-            className="size-full bg-cover bg-center"
-            style={{
-              backgroundImage:
-                'url(/images/hero.jpg)',
-            }}
-            role="img"
-            aria-label="Camisa azul sobre silla roja"
-          />
-        </div>
-      </section>
-
-      {/* Services */}
-      <section
-        id="servicios"
-        className="flex w-full shrink-0 flex-col gap-14 bg-white px-6 pt-24 pb-20 md:px-16"
-      >
-        <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
-          <div className="flex max-w-130 flex-col gap-3">
-            <p className="inline-block font-['DM_Sans',system-ui,sans-serif] text-[11px]/3.5 font-medium tracking-[0.16em] text-[#6B7F73] uppercase">
-              Servicios
-            </p>
-            <h2 className="font-['Cormorant_Garamond',serif] text-4xl/11 tracking-[-0.02em] text-[#1A1C1B] md:text-5xl/13">
-              Lo que hago con cuidado
-            </h2>
-          </div>
-          <p className="flex max-w-[320px] flex-wrap font-['DM_Sans',system-ui,sans-serif] text-[15px]/6 text-[#6B706C] md:justify-end md:text-right">
-            Cada prenda tiene su historia. Yo me encargo de que vuelva a sentirse
-            bien puesta.
-          </p>
-        </div>
-        <div className="flex w-full flex-col border-t border-[#D8DCD8] md:flex-row">
-          <div className="flex grow basis-[0%] flex-col gap-4 border-b border-[#D8DCD8] pt-10 pr-0 pb-8 md:border-r md:border-b-0 md:pr-10 md:pb-2">
-            <p className="inline-block font-['Cormorant_Garamond',serif] text-[32px]/9 font-medium text-[#1A1C1B]">
-              01
-            </p>
-            <h3 className="font-['Cormorant_Garamond',serif] text-[28px]/8.5 text-[#1A1C1B]">
-              Arreglos
-            </h3>
-            <p className="max-w-70 font-['DM_Sans',system-ui,sans-serif] text-sm/5.5 text-[#6B706C]">
-              Bajos, cinturas, mangas, cierres. Dejo la prenda como si siempre
-              hubiera sido tuya.
-            </p>
-          </div>
-          <div className="flex grow basis-[0%] flex-col gap-4 border-b border-[#D8DCD8] px-0 pt-10 pb-8 md:border-r md:border-b-0 md:px-10 md:pb-2">
-            <p className="inline-block font-['Cormorant_Garamond',serif] text-[32px]/9 font-medium text-[#1A1C1B]">
-              02
-            </p>
-            <h3 className="font-['Cormorant_Garamond',serif] text-[28px]/8.5 text-[#1A1C1B]">
-              A medida
-            </h3>
-            <p className="max-w-70 font-['DM_Sans',system-ui,sans-serif] text-sm/5.5 text-[#6B706C]">
-              Vestidos, faldas y piezas de ocasión cortadas y cosidas para ti,
-              desde el patrón.
-            </p>
-          </div>
-          <div className="flex grow basis-[0%] flex-col gap-4 pt-10 pb-2 pl-0 md:pl-10">
-            <p className="inline-block font-['Cormorant_Garamond',serif] text-[32px]/9 font-medium text-[#1A1C1B]">
-              03
-            </p>
-            <h3 className="font-['Cormorant_Garamond',serif] text-[28px]/8.5 text-[#1A1C1B]">
-              Ajustes finos
-            </h3>
-            <p className="max-w-70 font-['DM_Sans',system-ui,sans-serif] text-sm/5.5 text-[#6B706C]">
-              Retoques de última hora, pruebas y pequeños cambios que marcan la
-              diferencia.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Work */}
-      <section
-        id="trabajo"
-        className="flex w-full shrink-0 flex-col gap-12 bg-[#F4F1EC] px-6 pt-10 pb-24 md:px-16"
-      >
-        <div className="flex items-baseline justify-between">
-          <div className="flex flex-col gap-2.5">
-            <p className="inline-block font-['DM_Sans',system-ui,sans-serif] text-[11px]/3.5 font-medium tracking-[0.16em] text-[#6B7F73] uppercase">
-              Trabajo reciente
-            </p>
-            <h2 className="font-['Cormorant_Garamond',serif] text-4xl/11 tracking-[-0.02em] text-[#1A1C1B] md:text-5xl/13">
-              Algunas piezas
-            </h2>
-          </div>
-          <a
-            href="#cita"
-            className="hidden font-['DM_Sans',system-ui,sans-serif] text-[13px]/4 tracking-[0.02em] text-[#2C2F2E] underline-offset-4 [text-decoration:underline_1px] md:inline-block"
-          >
-            Ver más
-          </a>
-        </div>
-        <div className="flex w-full flex-col gap-5 md:flex-row">
-          <div className="flex grow-[1.15] basis-[0%] flex-col gap-3.5">
-            <div
-              className="h-80 w-full shrink-0 bg-cover bg-center md:h-140"
-              style={{ backgroundImage: 'url(/images/suit.jpg)' }}
-              role="img"
-              aria-label="Traje a medida"
-            />
-            <div className="flex items-baseline justify-between">
-              <p className="inline-block font-['Cormorant_Garamond',serif] text-xl/6 text-[#1A1C1B]">
-                Traje a medida
-              </p>
-              <p className="inline-block font-['DM_Sans',system-ui,sans-serif] text-xs/4 tracking-[0.08em] text-[#8A918C] uppercase">
-                A medida
-              </p>
+      <main id="contenido" tabIndex={-1}>
+        <section id="top" className="hero">
+          <div className="hero__copy">
+            <div className="hero__signature">
+              <strong>Doina</strong>
+              <span>Modista en Zaragoza</span>
             </div>
-          </div>
-          <div className="flex grow-[0.85] basis-[0%] flex-col gap-5">
-            <div className="flex grow basis-[0%] flex-col gap-3.5">
-              <div
-                className="h-56 w-full shrink-0 bg-cover bg-center md:h-65"
-                style={{ backgroundImage: 'url(/images/sewing.jpg)' }}
-                role="img"
-                aria-label="Detalle de costura"
-              />
-              <div className="flex items-baseline justify-between">
-                <p className="inline-block font-['Cormorant_Garamond',serif] text-xl/6 text-[#1A1C1B]">
-                  Detalle de costura
-                </p>
-                <p className="inline-block font-['DM_Sans',system-ui,sans-serif] text-xs/4 tracking-[0.08em] text-[#8A918C] uppercase">
-                  Arreglo
-                </p>
-              </div>
-            </div>
-            <div className="flex grow basis-[0%] flex-col gap-3.5">
-              <div
-                className="h-56 w-full shrink-0 bg-cover bg-center md:h-65"
-                style={{ backgroundImage: 'url(/images/dress.jpg)' }}
-                role="img"
-                aria-label="Vestido de tarde"
-              />
-              <div className="flex items-baseline justify-between">
-                <p className="inline-block font-['Cormorant_Garamond',serif] text-xl/6 text-[#1A1C1B]">
-                  Vestido de tarde
-                </p>
-                <p className="inline-block font-['DM_Sans',system-ui,sans-serif] text-xs/4 tracking-[0.08em] text-[#8A918C] uppercase">
-                  A medida
-                </p>
+            <div className="hero__body">
+              <h1>Arreglos y ropa a medida</h1>
+              <p>
+                Ajustes precisos y piezas hechas con calma en el taller de
+                Doina en Zaragoza.
+              </p>
+              <div className="hero__actions">
+                <a className="button button--dark" href="#cita">
+                  Pedir cita
+                </a>
+                <a className="text-link" href="#trabajo">
+                  Ver trabajo
+                </a>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+          <figure className="hero__media">
+            <div className="hero__image-frame">
+              <img
+                src="/images/hero.webp"
+                srcSet="/images/hero-720.webp 720w, /images/hero-900.webp 900w, /images/hero.webp 1100w"
+                sizes="(max-width: 900px) 100vw, 56vw"
+                alt="Camisa azul sobre una silla roja en el taller"
+                width={1100}
+                height={1650}
+                fetchPriority="high"
+              />
+            </div>
+            <figcaption>
+              <span>Doina, modista</span>
+              <span>Zaragoza</span>
+            </figcaption>
+          </figure>
+        </section>
 
-      {/* CTA / Contact */}
-      <section id="cita" className="flex w-full shrink-0 flex-col bg-[#1A1C1B] md:flex-row">
-        <div className="flex w-full shrink-0 flex-col justify-center gap-7 px-6 py-20 md:w-160 md:px-18 md:py-24">
-          <p className="inline-block font-['DM_Sans',system-ui,sans-serif] text-[11px]/3.5 font-medium tracking-[0.16em] text-[#6B7F73] uppercase">
-            Cita
-          </p>
-          <h2 className="whitespace-pre-wrap font-['Cormorant_Garamond',serif] text-[40px]/12 tracking-[-0.02em] text-white md:text-[56px]/15">
-            Ven al taller.
-            <br />
-            Hablamos de tu prenda.
-          </h2>
-          <p className="max-w-100 font-['DM_Sans',system-ui,sans-serif] text-[15px]/6 text-[#FFFFFFAD]">
-            Una visita corta basta para medir, ver telas y acordar plazos. Sin
-            prisas, con claridad.
-          </p>
-          <div className="mt-2 flex flex-col gap-5">
-            <a
-              href="mailto:hola@d-accords.com"
-              className="flex items-center justify-center self-start bg-[#6B7F73] px-7 py-4 no-underline"
-            >
-              <span className="inline-block font-['DM_Sans',system-ui,sans-serif] text-[13px]/4 font-medium tracking-[0.08em] text-white uppercase">
-                Pedir cita
-              </span>
-            </a>
-            <div className="flex flex-col gap-2">
-              <a
-                href="mailto:hola@d-accords.com"
-                className="inline-block font-['DM_Sans',system-ui,sans-serif] text-sm/5 text-[#FFFFFFE0] no-underline"
+        <section id="servicios" className="section">
+          <div className="section__intro">
+            <h2>Lo que hago con cuidado</h2>
+            <p>
+              Cada prenda tiene su historia. Mi trabajo es hacer que vuelva a
+              sentirse bien puesta.
+            </p>
+          </div>
+          <div className="service-list">
+            {services.map((service, index) => (
+              <article className="service-row" key={service.title}>
+                <span className="service-row__index">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="trabajo" className="work section section--dark">
+          <div className="section__intro">
+            <h2>Algunas piezas</h2>
+            <p>
+              Una selección de arreglos, pruebas y prendas confeccionadas en el
+              taller.
+            </p>
+          </div>
+          <div className="work-grid">
+            {work.map((item, index) => (
+              <figure
+                className={`work-piece work-piece--${index + 1}`}
+                key={item.title}
               >
-                hola@d-accords.com
-              </a>
-              <p className="inline-block font-['DM_Sans',system-ui,sans-serif] text-sm/5 text-[#FFFFFFE0]">
-                Zaragoza
-              </p>
-              <p className="inline-block font-['DM_Sans',system-ui,sans-serif] text-sm/5 text-[#FFFFFF8C]">
-                Martes–sábado · con cita previa
-              </p>
+                <div className="work-piece__image">
+                  <img
+                    src={item.src}
+                    srcSet={item.srcSet}
+                    sizes={item.sizes}
+                    alt={item.alt}
+                    width={item.width}
+                    height={item.height}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>
+                  <span>{item.title}</span>
+                  <span>{item.type}</span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+
+        <section id="cita" className="contact">
+          <div className="contact__portrait">
+            <img
+              src="/images/doina-line-art.webp"
+              srcSet="/images/doina-line-art-400.webp 400w, /images/doina-line-art-480.webp 480w, /images/doina-line-art.webp 640w"
+              sizes="(max-width: 900px) 250px, 320px"
+              alt="Retrato lineal de Doina"
+              width={640}
+              height={640}
+              loading="lazy"
+              decoding="async"
+            />
+            <div>
+              <strong>Doina</strong>
+              <span>Modista</span>
             </div>
           </div>
-        </div>
-        <div className="flex min-h-80 grow basis-[0%] overflow-clip md:min-h-130">
-          <div
-            className="size-full bg-cover bg-center"
-            style={{ backgroundImage: 'url(/images/hangers.jpg)' }}
-            role="img"
-            aria-label="Perchas de madera en el taller"
-          />
-        </div>
-      </section>
+          <div className="contact__details">
+            <h2>Visítanos</h2>
+            <p className="contact__lead">
+              Una visita basta para medir, ver telas y acordar plazos.
+            </p>
+            <dl className="contact-list">
+              <div>
+                <dt>Tel</dt>
+                <dd>
+                  <a href="tel:+34642579531">+34 642 579 531</a>
+                </dd>
+              </div>
+              <div>
+                <dt>Taller</dt>
+                <dd>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=C%2F%20del%20Porvenir%2C%2015%2C%2050006%20Zaragoza"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    C/ del Porvenir, 15
+                    <br />
+                    50006 Zaragoza
+                    <span className="sr-only">
+                      {' '}
+                      (se abre en una pestaña nueva)
+                    </span>
+                  </a>
+                </dd>
+              </div>
+              <div>
+                <dt>Email</dt>
+                <dd>
+                  <a href="mailto:hola@d-accords.com">hola@d-accords.com</a>
+                </dd>
+              </div>
+              <div>
+                <dt>Horario</dt>
+                <dd>Martes a sábado, con cita previa</dd>
+              </div>
+            </dl>
+            <a
+              className="button button--light contact__cta"
+              href="mailto:hola@d-accords.com?subject=Cita%20en%20D%27accords"
+            >
+              Pedir cita
+            </a>
+          </div>
+        </section>
 
-      {/* Footer */}
-      <footer className="flex w-full shrink-0 flex-col items-start justify-between gap-4 border-t border-[#D8DCD8] bg-white px-6 py-8 md:flex-row md:items-center md:px-16">
-        <div className="flex items-baseline gap-2.5">
-          <span className="inline-block font-['Cormorant_Garamond',serif] text-[22px]/6.5 font-medium text-[#1A1C1B]">
-            Doina
-          </span>
-          <span className="inline-block font-['DM_Sans',system-ui,sans-serif] text-[11px]/3.5 tracking-[0.14em] text-[#8A918C] uppercase">
-            D&apos;accords
-          </span>
-        </div>
-        <p className="inline-block font-['DM_Sans',system-ui,sans-serif] text-xs/4 text-[#8A918C]">
-          Hecho con hilo, aguja y paciencia. · Zaragoza
-        </p>
-        <p className="inline-block font-['DM_Sans',system-ui,sans-serif] text-xs/4 text-[#8A918C]">
-          © 2026
-        </p>
+        <MeasuringTape />
+      </main>
+
+      <footer className="site-footer">
+        <Wordmark />
+        <p>Hecho con hilo, aguja y paciencia.</p>
+        <p>© 2026, Zaragoza</p>
       </footer>
     </div>
   )
